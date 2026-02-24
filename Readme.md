@@ -300,4 +300,4 @@ jobs:
 
 Here is the screenshot of the security group settings:
 
-![Security Group](https://raw.githubusercontent.com/comrade2a/MERN-devops-project/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png)
+![image alt](https://raw.githubusercontent.com/comrade2a/MERN-devops-project/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png)
