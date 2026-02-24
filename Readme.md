@@ -298,4 +298,4 @@ jobs:
             docker-compose up -d
 
 
-screenshots/page1.png
+https://github.com/comrade2a/MERN-devops-project/blob/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png
