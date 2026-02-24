@@ -296,9 +296,4 @@ jobs:
             cd /home/ubuntu/mean-app/
             docker-compose down
             docker-compose up -d
-## 🔐 AWS Security Group
-
-![Security Group](https://raw.githubusercontent.com/comrade2a/MERN-devops-project/main/screenshots/Security_group.png)
-
-![Security Group](screenshots/Security_group.png)
-
+<img width="1193" height="517" alt="Image" src="https://github.com/user-attachments/assets/377e64c3-6f41-4eef-8d65-7f630c903efa" />
