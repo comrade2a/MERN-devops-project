@@ -1,32 +1,29 @@
 version: "3"
 services:
   backend:
-    image: surendergupta/mean-backend:latest
-    container_name: mean-backend
+    image: mean-backend:latest
     ports:
       - "5000:5000"
-    depends_on:
-      - mongo
     environment:
       - MONGO_URL=mongodb://mongo:27017/dd_db
-  
+    depends_on:
+      - mongo
+
   frontend:
-    image: surendergupta/mean-frontend:latest
-    environment:
-      - API_URL=http://13.233.157.131/api/tutorials    
-    container_name: mean-frontend
+    image: mean-frontend:latest
     ports:
       - "8081:80"
+    environment:
+      - API_URL=http://<your-ec2-ip>/api/tutorials
     depends_on:
       - backend
-      
+
   mongo:
     image: mongo:latest
-    container_name: mongo
-    ports:
-      - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    ports:
+      - "27017:27017"
 
 volumes:
   mongo-data:
