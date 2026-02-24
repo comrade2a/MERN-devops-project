@@ -296,4 +296,9 @@ jobs:
             cd /home/ubuntu/mean-app/
             docker-compose down
             docker-compose up -d
+
+
+
+
+
 <img width="1193" height="517" alt="Image" src="https://github.com/user-attachments/assets/377e64c3-6f41-4eef-8d65-7f630c903efa" />
