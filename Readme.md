@@ -297,5 +297,5 @@ jobs:
             docker-compose down
             docker-compose up -d
 
-
-https://github.com/comrade2a/MERN-devops-project/blob/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png
+![Architecture](https://github.com/comrade2a/MERN-devops-project/blob/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png
+)
