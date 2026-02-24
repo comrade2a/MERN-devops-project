@@ -299,3 +299,6 @@ jobs:
 ## 🔐 AWS Security Group
 
 ![Security Group](https://raw.githubusercontent.com/comrade2a/MERN-devops-project/main/screenshots/Security_group.png)
+
+![Security Group](screenshots/Security_group.png)
+
