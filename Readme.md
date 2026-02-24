@@ -301,4 +301,4 @@ jobs:
 
 
 
-![image alt]()
+![image alt](https://github.com/comrade2a/MERN-devops-project/blob/d4d640883c97468f148f11d8e21d18abe74701ee/screenshots/page1.png)
