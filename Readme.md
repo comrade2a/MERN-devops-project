@@ -253,4 +253,48 @@ app.use(cors());
 - **Frontend UI:** http://13.233.157.131/
 
 
+name: CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push Backend
+        run: |
+          cd backend
+          docker build -t comrade2a/backend:latest .
+          docker push comrade2a/backend:latest
+
+      - name: Build and Push Frontend
+        run: |
+          cd frontend
+          docker build -t comrade2a/frontend:latest .
+          docker push comrade2a/frontend:latest
+
+      - name: Deploy on AWS EC2 VM
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VM_HOST }}
+          port: 22
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            ls 
+            pwd
+            docker pull comrade2a/backend:latest
+            docker pull comrade2a/frontend:latest
+            cd /home/ubuntu/mean-app/
+            docker-compose down
+            docker-compose up -d
+
 
