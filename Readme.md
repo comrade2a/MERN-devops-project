@@ -298,3 +298,4 @@ jobs:
             docker-compose up -d
 
 
+screenshots/page1.png
