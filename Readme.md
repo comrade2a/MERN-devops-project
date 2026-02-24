@@ -186,8 +186,8 @@ This file defines the backend, frontend, and MongoDB services.
 version: "3"
 services:
   backend:
-    image: mean-backend:latest
-    container_name: mean-backend
+    image: backend:latest
+    container_name: backend
     ports:
       - "5000:5000"
     depends_on:
@@ -196,10 +196,10 @@ services:
       - MONGO_URL=mongodb://mongo:27017/dd_db
   
   frontend:
-    image: mean-frontend:latest
+    image: frontend:latest
     environment:
       - API_URL=http://13.233.157.131/api/tutorials
-    container_name: mean-frontend
+    container_name: frontend
     ports:
       - "8081:80"
     depends_on:
@@ -231,51 +231,7 @@ docker-compose down
 **GitHub Actions (`.github/workflows/deploy.yml`)**
 
 ```yaml
-name: CI/CD Pipeline
-on:
-  push:
-    branches:
-      - master
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: Build and Push Backend
-        run: |
-          cd backend
-          docker build -t surendergupta/mean-backend:latest .
-          docker push surendergupta/mean-backend:latest
-
-      - name: Build and Push Frontend
-        run: |
-          cd frontend
-          docker build -t surendergupta/mean-frontend:latest .
-          docker push surendergupta/mean-frontend:latest
-
-      - name: Deploy on VM
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.VM_HOST }}
-          port: 22
-          username: ${{ secrets.VM_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            ls 
-            pwd
-            docker pull surendergupta/mean-backend:latest
-            docker pull surendergupta/mean-frontend:latest
-            cd /home/ubuntu/mean-app/
-            docker-compose down
-            docker-compose up -d
-
-```
 ---
 
 ## **Notes & Troubleshooting**
@@ -290,15 +246,7 @@ Ensure CORS is enabled to allow frontend access:
 ```js
 const cors = require("cors");
 app.use(cors());
-```
 
-### **Fix for `strictQuery` Warning in Mongoose**
-Set `strictQuery` to `false` in `server.js` to avoid issues with MongoDB queries:
-```js
-mongoose.set("strictQuery", false);
-```
-
----
 
 ## **Access the Application**
 - **Backend API:** http://13.233.157.131/api/tutorials
@@ -333,14 +281,5 @@ mongoose.set("strictQuery", false);
 ![Nodejs Backend Application](./screenshots/todo_app_new_add.png)
 ![Nodejs Backend Application](./screenshots/todo_app_backend.png)
 
----
 
-## **Author**
-- **Surender Gupta** 🚀
-- Contact: [Github](https://github.com/surendergupta) | [LinkedIn](https://www.linkedin.com/in/surender-gupta/)
-
----
-
-## **License**
-This project is licensed under the MIT License. Feel free to modify and use it as needed.
 
