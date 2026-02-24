@@ -296,6 +296,8 @@ jobs:
             cd /home/ubuntu/mean-app/
             docker-compose down
             docker-compose up -d
+## 🔐 AWS Security Group Configuration
 
-![Architecture](https://github.com/comrade2a/MERN-devops-project/blob/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png
-)
+Here is the screenshot of the security group settings:
+
+![Security Group](https://raw.githubusercontent.com/comrade2a/MERN-devops-project/56ac5867b8277de8628f76383374d85ed968886b/screenshots/Security_group.png)
